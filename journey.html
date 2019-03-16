@@ -23,11 +23,11 @@
 			<link rel="stylesheet" href="css/linearicons.css">
 			<link rel="stylesheet" href="css/font-awesome.min.css">
 			<link rel="stylesheet" href="css/bootstrap.css">
-			<link rel="stylesheet" href="css/magnific-popup.css">			
+			<link rel="stylesheet" href="css/magnific-popup.css">
+			<link rel="stylesheet" href="css/jquery-ui.css">				
 			<link rel="stylesheet" href="css/nice-select.css">							
 			<link rel="stylesheet" href="css/animate.min.css">
-			<link rel="stylesheet" href="css/owl.carousel.css">			
-			<link rel="stylesheet" href="css/jquery-ui.css">			
+			<link rel="stylesheet" href="css/owl.carousel.css">					
 			<link rel="stylesheet" href="css/main.css">
 		</head>
 		<body>	
@@ -35,7 +35,7 @@
 		    <div class="container main-menu">
 		    	<div class="row align-items-center justify-content-between d-flex">
 			      <div id="logo">
-			        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+			        <a href="http://sandeshm22.github.io/"><img src="img/logo.png" alt="" title="" /></a>
 			      </div>
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
@@ -48,66 +48,77 @@
 		    	</div>
 		    </div>
 		  </header><!-- #header -->
-	  
-			<!-- Start contact-page Area -->
-			<section class="contact-page-area section-gap">
-				<div class="container">
-					<div class="row">						
-						<div class="col-lg-4 d-flex flex-column address-wrap">
-							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr">
-										<i class="fa fa-lightbulb-o" aria-hidden="true"></i>
-									</span>
-								</div>
-								<div class="contact-details">
-									<p>Have an idea?<br/>
-									Want to implement?</p>									
-								</div>
-							</div>
-							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr lnr-phone-handset"></span>
-								</div>
-								<div class="contact-details">
-									<p>+91-9765364898<br/>
-									+91-7276802815</p>
-								</div>
-							</div>
-							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr lnr-envelope"></span>
-								</div>
-								<div class="contact-details">
-									<h5>mutha.sandesh@gmail.com</h5>
-									<p>Send me your idea anytime!</p>
-								</div>
-							</div>														
-						</div>
-						<div class="col-lg-8">
-							<form class="form-area contact-form text-right" id="myForm" action="mail.php" method="post">
-								<div class="row">	
-									<div class="col-lg-6 form-group">
-										<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
-									
-										<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
+		<div id ="bg-img-area">	  
+			<!-- Start home-about Area -->
+			<!-- Start timeline Area -->
+			<section class="timeline pb-120">
+            <div class="text-center">
+                <div class="menu-content pb-70">
+                    <div class="title text-center">
+                        <h1 class="mb-10">How did I became me?</h1>
+                        <p></p>
+                    </div>
+                </div>
+            </div>				
+			  <ul>
+			    <li>
+			      <div class="content">
+			        <h4>
+			          <time>
+							<p>Authorized Officer UBS</p>							
+					  </time>
+			        </h4>
+			        <p>May' 17 - Present</p>			        
+			      </div>
+			    </li>
+			    <li>
+			      <div class="content">
+			        <h4>
+			          <time>Senior Software Engineer</time>
+			        </h4>
+			        <p>Synechron Technologies</p>
+					<p>Nov' 16 - May' 17</p>
+			      </div>
+			    </li>
+				<li>
+			      <div class="content">
+			        <h4>
+			          <time>Senior Software Engineer</time>
+			        </h4>
+			        <p>Cybage Software</p>
+					<p>Jan' 15 - Nov' 16</p>
+			      </div>
+			    </li>
+				<li>
+			      <div class="content">
+			        <h4>
+			          <time>Software Engineer</time>
+			        </h4>
+			        <p>Curologic Systems Pvt Ltd</p>
+					<p>Nov' 13 - Jan' 15</p>
+			      </div>
+			    </li>
+			    <li>
+			      <div class="content">
+			        <h4>
+			          <time>Software Associate</time>
+			        </h4>
+			        <p>Saba Software</p>			        
+			      </div>
+			    </li>
+			    <li>
+			      <div class="content">
+			        <h4>
+			          <time>BTech in IT</time>
+			        </h4>
+			        <p>Pune Institute Of Computer Technology</p>
+			        <p>Passing : 2012</p>
+			      </div>
+			    </li>
+			  </ul>
+			</section>		
 
-										<input name="subject" placeholder="Enter subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter subject'" class="common-input mb-20 form-control" required="" type="text">
-									</div>
-									<div class="col-lg-6 form-group">
-										<textarea class="common-textarea form-control" name="message" placeholder="Enter Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Messege'" required=""></textarea>				
-									</div>
-									<div class="col-lg-12">
-										<div class="alert-msg" style="text-align: left;"></div>
-										<button class="genric-btn primary" style="float: right;">Send Message</button>											
-									</div>
-								</div>
-							</form>	
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End contact-page Area -->
+			<!-- End timeline Area -->
 
             <!-- start footer Area -->
             <footer class="footer-area section-gap">
@@ -120,7 +131,7 @@
                                     Sandesh Mutha
                                 </p>
 								<p>
-                                    Software Engineer
+                                    Technology Enthusiast
                                 </p>
                                 <p class="footer-text"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
@@ -153,14 +164,35 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                 <div class="footer-social d-flex align-items-center">
                                     <a href="https://www.facebook.com/sandesh.mutha1/about"><i class="fa fa-facebook"></i></a>
                                     <a href="https://twitter.com/MuthaSandesh"><i class="fa fa-twitter"></i></a>
-                                    <a href="https://www.linkedin.com/in/sandesh-mutha-92143150/"><i class="fa fa-linkedin"></i></a>                                  
-                                    <a href="https://www.github.com/sandeshm22"><i class="fa  fa-github-square"></i></a>
+                                    <a href="https://www.linkedin.com/in/sandesh-mutha-92143150/"><i class="fa fa-linkedin"></i></a>
+									<a href="https://www.github.com/sandeshm22"><i class="fa  fa-github-square"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </footer>
-            <!-- End footer Area -->	
+            <!-- End footer Area -->		
+
+			<script src="js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="js/popper.min.js"></script>
+			<script src="js/vendor/bootstrap.min.js"></script>			
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>			
+  			<script src="js/easing.min.js"></script>			
+			<script src="js/hoverIntent.js"></script>
+			<script src="js/superfish.min.js"></script>	
+			<script src="js/jquery.ajaxchimp.min.js"></script>
+			<script src="js/jquery.magnific-popup.min.js"></script>	
+    		<script src="js/jquery.tabs.min.js"></script>						
+			<script src="js/jquery.nice-select.min.js"></script>	
+            <script src="js/isotope.pkgd.min.js"></script>			
+			<script src="js/waypoints.min.js"></script>
+			<script src="js/jquery.counterup.min.js"></script>
+			<script src="js/simple-skillbar.js"></script>							
+			<script src="js/owl.carousel.min.js"></script>							
+			<script src="js/mail-script.js"></script>	
+			<script src="js/main.js"></script>
+
+</div>
 		</body>
 	</html>
