@@ -3,10 +3,6 @@
     {
       "name": "T-Shirts",
       "items": [
-<<<<<<< HEAD
-        { "id": 1, "name": "Black Logo Tee", "price": 499, "image": "images/tshirt_black.png" },
-        { "id": 2, "name": "White Logo Tee", "price": 499, "image": "images/tshirt_white.png" }
-=======
         { "id": 1, "name": "Classic Black Tee", "price": 399, "image": "images/product_001.jpg", "short": "Black Tee with classic finish", "desc": "Premium cotton tee with a comfortable fit and durable print.", "sale": 0, "rating": 4.1 },
         { "id": 2, "name": "Premium White Polo", "price": 449, "image": "images/product_002.jpg", "short": "White Polo with premium finish", "desc": "Pique knit polo, reinforced collar, ideal for corporate wear.", "sale": 0, "rating": 4.2 },
         { "id": 3, "name": "Eco Navy V-Neck", "price": 499, "image": "images/product_003.jpg", "short": "Navy V-Neck with eco finish", "desc": "Soft eco blend fabric, flattering v-neck cut.", "sale": 0, "rating": 4.3 },
@@ -20,15 +16,11 @@
         { "id": 11, "name": "Comfort Coral Pocket Tee", "price": 899, "image": "images/product_011.jpg", "short": "Coral pocket tee with comfort finish", "desc": "Soft cotton with a handy pocket and neat stitching.", "sale": 0, "rating": 4.0 },
         { "id": 12, "name": "Active Mint Long Sleeve", "price": 949, "image": "images/product_012.jpg", "short": "Mint long sleeve with active finish", "desc": "Lightweight long sleeve for active use and layering.", "sale": 0, "rating": 4.1 },
         { "id": 13, "name": "Soft Charcoal V-Neck", "price": 999, "image": "images/product_013.jpg", "short": "Charcoal v-neck with soft finish", "desc": "Soft handfeel and modern cut for everyday wear.", "sale": 10, "rating": 4.2 }
->>>>>>> aad1485 (tet)
       ]
     },
     {
       "name": "Mugs",
       "items": [
-<<<<<<< HEAD
-        { "id": 3, "name": "Ceramic Mug", "price": 299, "image": "images/mug_ceramic.png" }
-=======
         { "id": 14, "name": "Classic White Ceramic Mug", "price": 199, "image": "images/product_014.jpg", "short": "White ceramic mug with classic finish", "desc": "Durable ceramic mug with glossy finish, dishwasher safe.", "sale": 0, "rating": 4.3 },
         { "id": 15, "name": "Premium Black Travel Mug", "price": 249, "image": "images/product_015.jpg", "short": "Black travel mug with premium finish", "desc": "Insulated travel mug with spill-resistant lid.", "sale": 0, "rating": 4.4 },
         { "id": 16, "name": "Eco Glass Mug", "price": 299, "image": "images/product_016.jpg", "short": "Glass mug with eco finish", "desc": "Clear glass mug with heat-resistant design.", "sale": 0, "rating": 4.5 },
@@ -146,7 +138,6 @@
         { "id": 98, "name": "Comfort Glass Bottle", "price": 999, "image": "images/product_098.jpg", "short": "Glass bottle with comfort finish", "desc": "Comfort-grip sleeve and wide mouth for easy cleaning.", "sale": 10, "rating": 4.0 },
         { "id": 99, "name": "Active Insulated Sport Bottle", "price": 1199, "image": "images/product_099.jpg", "short": "Insulated sport bottle with active finish", "desc": "Designed for athletes with superior insulation.", "sale": 0, "rating": 4.1 },
         { "id": 100, "name": "Soft Travel Bottle", "price": 1399, "image": "images/product_100.jpg", "short": "Travel bottle with soft finish", "desc": "Premium travel bottle with leak-proof design and carry handle.", "sale": 0, "rating": 4.2 }
->>>>>>> aad1485 (tet)
       ]
     }
   ]
