@@ -3,14 +3,150 @@
     {
       "name": "T-Shirts",
       "items": [
+<<<<<<< HEAD
         { "id": 1, "name": "Black Logo Tee", "price": 499, "image": "images/tshirt_black.png" },
         { "id": 2, "name": "White Logo Tee", "price": 499, "image": "images/tshirt_white.png" }
+=======
+        { "id": 1, "name": "Classic Black Tee", "price": 399, "image": "images/product_001.jpg", "short": "Black Tee with classic finish", "desc": "Premium cotton tee with a comfortable fit and durable print.", "sale": 0, "rating": 4.1 },
+        { "id": 2, "name": "Premium White Polo", "price": 449, "image": "images/product_002.jpg", "short": "White Polo with premium finish", "desc": "Pique knit polo, reinforced collar, ideal for corporate wear.", "sale": 0, "rating": 4.2 },
+        { "id": 3, "name": "Eco Navy V-Neck", "price": 499, "image": "images/product_003.jpg", "short": "Navy V-Neck with eco finish", "desc": "Soft eco blend fabric, flattering v-neck cut.", "sale": 0, "rating": 4.3 },
+        { "id": 4, "name": "Urban Olive Long Sleeve", "price": 549, "image": "images/product_004.jpg", "short": "Olive long sleeve with urban finish", "desc": "Lightweight long sleeve for cooler days, soft brushed interior.", "sale": 10, "rating": 4.4 },
+        { "id": 5, "name": "Vintage Grey Pocket Tee", "price": 599, "image": "images/product_005.jpg", "short": "Grey pocket tee with vintage finish", "desc": "Functional pocket and reinforced stitching for everyday use.", "sale": 0, "rating": 4.5 },
+        { "id": 6, "name": "Modern Blue Graphic Tee", "price": 649, "image": "images/product_006.jpg", "short": "Blue graphic tee with modern finish", "desc": "Vibrant screen print on soft cotton.", "sale": 0, "rating": 4.6 },
+        { "id": 7, "name": "Sport Red Performance Tee", "price": 699, "image": "images/product_007.jpg", "short": "Red performance tee with sport finish", "desc": "Moisture-wicking fabric ideal for active teams.", "sale": 10, "rating": 4.7 },
+        { "id": 8, "name": "Signature Maroon Organic Tee", "price": 749, "image": "images/product_008.jpg", "short": "Maroon organic tee with signature finish", "desc": "Sustainably sourced organic cotton with premium handfeel.", "sale": 0, "rating": 4.8 },
+        { "id": 9, "name": "Limited Teal Graphic Tee", "price": 799, "image": "images/product_009.jpg", "short": "Teal graphic tee with limited finish", "desc": "Limited edition print with vibrant colors.", "sale": 0, "rating": 4.9 },
+        { "id": 10, "name": "Essential Mustard Classic Tee", "price": 849, "image": "images/product_010.jpg", "short": "Mustard tee with essential finish", "desc": "Everyday essential tee with comfortable fit.", "sale": 0, "rating": 5.0 },
+        { "id": 11, "name": "Comfort Coral Pocket Tee", "price": 899, "image": "images/product_011.jpg", "short": "Coral pocket tee with comfort finish", "desc": "Soft cotton with a handy pocket and neat stitching.", "sale": 0, "rating": 4.0 },
+        { "id": 12, "name": "Active Mint Long Sleeve", "price": 949, "image": "images/product_012.jpg", "short": "Mint long sleeve with active finish", "desc": "Lightweight long sleeve for active use and layering.", "sale": 0, "rating": 4.1 },
+        { "id": 13, "name": "Soft Charcoal V-Neck", "price": 999, "image": "images/product_013.jpg", "short": "Charcoal v-neck with soft finish", "desc": "Soft handfeel and modern cut for everyday wear.", "sale": 10, "rating": 4.2 }
+>>>>>>> aad1485 (tet)
       ]
     },
     {
       "name": "Mugs",
       "items": [
+<<<<<<< HEAD
         { "id": 3, "name": "Ceramic Mug", "price": 299, "image": "images/mug_ceramic.png" }
+=======
+        { "id": 14, "name": "Classic White Ceramic Mug", "price": 199, "image": "images/product_014.jpg", "short": "White ceramic mug with classic finish", "desc": "Durable ceramic mug with glossy finish, dishwasher safe.", "sale": 0, "rating": 4.3 },
+        { "id": 15, "name": "Premium Black Travel Mug", "price": 249, "image": "images/product_015.jpg", "short": "Black travel mug with premium finish", "desc": "Insulated travel mug with spill-resistant lid.", "sale": 0, "rating": 4.4 },
+        { "id": 16, "name": "Eco Glass Mug", "price": 299, "image": "images/product_016.jpg", "short": "Glass mug with eco finish", "desc": "Clear glass mug with heat-resistant design.", "sale": 0, "rating": 4.5 },
+        { "id": 17, "name": "Urban Steel Mug", "price": 349, "image": "images/product_017.jpg", "short": "Steel mug with urban finish", "desc": "Stainless steel mug, great for outdoor use.", "sale": 10, "rating": 4.6 },
+        { "id": 18, "name": "Vintage Magic Mug", "price": 399, "image": "images/product_018.jpg", "short": "Magic mug with vintage finish", "desc": "Heat-sensitive magic mug that reveals a design when hot.", "sale": 0, "rating": 4.7 },
+        { "id": 19, "name": "Modern Ceramic Tall Mug", "price": 449, "image": "images/product_019.jpg", "short": "Tall ceramic mug with modern finish", "desc": "Tall profile mug for larger servings.", "sale": 0, "rating": 4.8 },
+        { "id": 20, "name": "Signature Travel Tumbler", "price": 499, "image": "images/product_020.jpg", "short": "Travel tumbler with signature finish", "desc": "Double-walled tumbler for temperature retention.", "sale": 0, "rating": 4.9 },
+        { "id": 21, "name": "Limited Edition Glass Mug", "price": 549, "image": "images/product_021.jpg", "short": "Limited glass mug with special finish", "desc": "Collector's edition glass mug with unique print.", "sale": 10, "rating": 5.0 },
+        { "id": 22, "name": "Essential Ceramic Mug", "price": 599, "image": "images/product_022.jpg", "short": "Essential ceramic mug with simple finish", "desc": "Reliable everyday mug with comfortable handle.", "sale": 0, "rating": 4.0 },
+        { "id": 23, "name": "Comfort Steel Travel Mug", "price": 249, "image": "images/product_023.jpg", "short": "Steel travel mug with comfort finish", "desc": "Ergonomic travel mug with secure lid.", "sale": 0, "rating": 4.1 },
+        { "id": 24, "name": "Active Insulated Mug", "price": 299, "image": "images/product_024.jpg", "short": "Insulated mug with active finish", "desc": "Keeps beverages hot or cold for hours.", "sale": 0, "rating": 4.2 },
+        { "id": 25, "name": "Soft Handle Ceramic Mug", "price": 349, "image": "images/product_025.jpg", "short": "Ceramic mug with soft handle", "desc": "Comfortable handle and smooth glaze.", "sale": 10, "rating": 4.3 },
+        { "id": 26, "name": "Limited Print Travel Mug", "price": 399, "image": "images/product_026.jpg", "short": "Travel mug with limited print", "desc": "Special print travel mug for events and gifts.", "sale": 0, "rating": 4.4 }
+      ]
+    },
+    {
+      "name": "Hoodies",
+      "items": [
+        { "id": 27, "name": "Classic Black Pullover Hoodie", "price": 799, "image": "images/product_027.jpg", "short": "Black pullover hoodie with classic finish", "desc": "Cozy pullover with fleece interior and kangaroo pocket.", "sale": 0, "rating": 4.5 },
+        { "id": 28, "name": "Premium Grey Zip Hoodie", "price": 899, "image": "images/product_028.jpg", "short": "Grey zip hoodie with premium finish", "desc": "Full-zip hoodie with reinforced zipper and soft lining.", "sale": 0, "rating": 4.6 },
+        { "id": 29, "name": "Eco Navy Lightweight Hoodie", "price": 999, "image": "images/product_029.jpg", "short": "Navy lightweight hoodie with eco finish", "desc": "Breathable hoodie made from recycled fibers.", "sale": 0, "rating": 4.7 },
+        { "id": 30, "name": "Urban Olive Fleece Hoodie", "price": 1099, "image": "images/product_030.jpg", "short": "Olive fleece hoodie with urban finish", "desc": "Warm fleece interior for chilly days.", "sale": 10, "rating": 4.8 },
+        { "id": 31, "name": "Vintage Blue Pullover Hoodie", "price": 1199, "image": "images/product_031.jpg", "short": "Blue pullover hoodie with vintage finish", "desc": "Retro-inspired design with soft handfeel.", "sale": 0, "rating": 4.9 },
+        { "id": 32, "name": "Modern Red Zip Hoodie", "price": 1299, "image": "images/product_032.jpg", "short": "Red zip hoodie with modern finish", "desc": "Contemporary fit with durable stitching.", "sale": 0, "rating": 5.0 },
+        { "id": 33, "name": "Sport Maroon Performance Hoodie", "price": 1399, "image": "images/product_033.jpg", "short": "Maroon performance hoodie with sport finish", "desc": "Moisture-wicking hoodie for active use.", "sale": 0, "rating": 4.0 },
+        { "id": 34, "name": "Signature Teal Heavy Hoodie", "price": 1499, "image": "images/product_034.jpg", "short": "Teal heavy hoodie with signature finish", "desc": "Heavyweight hoodie for extra warmth.", "sale": 10, "rating": 4.1 },
+        { "id": 35, "name": "Limited Mustard Zip Hoodie", "price": 1599, "image": "images/product_035.jpg", "short": "Mustard zip hoodie with limited finish", "desc": "Limited edition colorway with premium details.", "sale": 0, "rating": 4.2 },
+        { "id": 36, "name": "Essential Coral Pullover Hoodie", "price": 1699, "image": "images/product_036.jpg", "short": "Coral pullover hoodie with essential finish", "desc": "Reliable everyday hoodie with clean design.", "sale": 0, "rating": 4.3 },
+        { "id": 37, "name": "Comfort Mint Fleece Hoodie", "price": 1799, "image": "images/product_037.jpg", "short": "Mint fleece hoodie with comfort finish", "desc": "Soft fleece lining and relaxed fit.", "sale": 0, "rating": 4.4 },
+        { "id": 38, "name": "Active Charcoal Performance Hoodie", "price": 1899, "image": "images/product_038.jpg", "short": "Charcoal performance hoodie with active finish", "desc": "Designed for movement with breathable fabric.", "sale": 10, "rating": 4.5 },
+        { "id": 39, "name": "Soft Black Heavyweight Hoodie", "price": 1999, "image": "images/product_039.jpg", "short": "Black heavyweight hoodie with soft finish", "desc": "Premium heavyweight fabric for durability and warmth.", "sale": 0, "rating": 4.6 }
+      ]
+    },
+    {
+      "name": "Caps",
+      "items": [
+        { "id": 40, "name": "Classic Black Baseball Cap", "price": 199, "image": "images/product_040.jpg", "short": "Black baseball cap with classic finish", "desc": "Adjustable cap with embroidered logo.", "sale": 0, "rating": 4.7 },
+        { "id": 41, "name": "Premium White Trucker Cap", "price": 249, "image": "images/product_041.jpg", "short": "White trucker cap with premium finish", "desc": "Breathable mesh back and structured front.", "sale": 0, "rating": 4.8 },
+        { "id": 42, "name": "Eco Navy Beanie", "price": 299, "image": "images/product_042.jpg", "short": "Navy beanie with eco finish", "desc": "Warm beanie made from recycled yarns.", "sale": 0, "rating": 4.9 },
+        { "id": 43, "name": "Urban Olive Dad Cap", "price": 349, "image": "images/product_043.jpg", "short": "Olive dad cap with urban finish", "desc": "Soft unstructured cap with adjustable strap.", "sale": 10, "rating": 5.0 },
+        { "id": 44, "name": "Vintage Grey Baseball Cap", "price": 399, "image": "images/product_044.jpg", "short": "Grey baseball cap with vintage finish", "desc": "Washed finish for a retro look.", "sale": 0, "rating": 4.0 },
+        { "id": 45, "name": "Modern Blue Trucker Cap", "price": 449, "image": "images/product_045.jpg", "short": "Blue trucker cap with modern finish", "desc": "Contemporary colorways and breathable mesh.", "sale": 0, "rating": 4.1 },
+        { "id": 46, "name": "Signature Red Beanie", "price": 499, "image": "images/product_046.jpg", "short": "Red beanie with signature finish", "desc": "Premium knit beanie with logo patch.", "sale": 0, "rating": 4.2 },
+        { "id": 47, "name": "Limited Maroon Dad Cap", "price": 549, "image": "images/product_047.jpg", "short": "Maroon dad cap with limited finish", "desc": "Limited color release with subtle branding.", "sale": 10, "rating": 4.3 },
+        { "id": 48, "name": "Essential Teal Baseball Cap", "price": 599, "image": "images/product_048.jpg", "short": "Teal baseball cap with essential finish", "desc": "Simple, durable cap for everyday wear.", "sale": 0, "rating": 4.4 },
+        { "id": 49, "name": "Comfort Mustard Trucker Cap", "price": 249, "image": "images/product_049.jpg", "short": "Mustard trucker cap with comfort finish", "desc": "Comfortable fit with breathable back.", "sale": 0, "rating": 4.5 },
+        { "id": 50, "name": "Active Coral Beanie", "price": 299, "image": "images/product_050.jpg", "short": "Coral beanie with active finish", "desc": "Lightweight beanie for active use.", "sale": 0, "rating": 4.6 },
+        { "id": 51, "name": "Soft Mint Baseball Cap", "price": 349, "image": "images/product_051.jpg", "short": "Mint baseball cap with soft finish", "desc": "Soft fabric and adjustable strap for comfort.", "sale": 0, "rating": 4.7 },
+        { "id": 52, "name": "Active Charcoal Dad Cap", "price": 399, "image": "images/product_052.jpg", "short": "Charcoal dad cap with active finish", "desc": "Durable cap designed for daily wear.", "sale": 10, "rating": 4.8 }
+      ]
+    },
+    {
+      "name": "Notebooks",
+      "items": [
+        { "id": 53, "name": "Classic Hardcover Notebook", "price": 149, "image": "images/product_053.jpg", "short": "Hardcover notebook with classic finish", "desc": "Durable hardcover notebook with lined pages.", "sale": 0, "rating": 4.9 },
+        { "id": 54, "name": "Premium Spiral Notebook", "price": 199, "image": "images/product_054.jpg", "short": "Spiral notebook with premium finish", "desc": "Lay-flat spiral binding and thick paper.", "sale": 0, "rating": 5.0 },
+        { "id": 55, "name": "Eco Pocket Notebook", "price": 249, "image": "images/product_055.jpg", "short": "Pocket notebook with eco finish", "desc": "Compact notebook made from recycled paper.", "sale": 0, "rating": 4.0 },
+        { "id": 56, "name": "Urban Hardcover Journal", "price": 299, "image": "images/product_056.jpg", "short": "Hardcover journal with urban finish", "desc": "Premium journal with ribbon marker and elastic band.", "sale": 10, "rating": 4.1 },
+        { "id": 57, "name": "Vintage Spiral Notebook", "price": 349, "image": "images/product_057.jpg", "short": "Spiral notebook with vintage finish", "desc": "Retro cover designs with quality paper.", "sale": 0, "rating": 4.2 },
+        { "id": 58, "name": "Modern Pocket Notebook", "price": 399, "image": "images/product_058.jpg", "short": "Pocket notebook with modern finish", "desc": "Slim pocket notebook for quick notes on the go.", "sale": 0, "rating": 4.3 },
+        { "id": 59, "name": "Signature Hardcover Notebook", "price": 449, "image": "images/product_059.jpg", "short": "Hardcover notebook with signature finish", "desc": "Elegant hardcover with premium paper quality.", "sale": 0, "rating": 4.4 },
+        { "id": 60, "name": "Limited Edition Journal", "price": 199, "image": "images/product_060.jpg", "short": "Limited journal with special finish", "desc": "Collector's edition journal with unique cover art.", "sale": 0, "rating": 4.5 },
+        { "id": 61, "name": "Essential Spiral Notebook", "price": 249, "image": "images/product_061.jpg", "short": "Spiral notebook with essential finish", "desc": "Reliable spiral notebook for everyday use.", "sale": 0, "rating": 4.6 },
+        { "id": 62, "name": "Comfort Pocket Journal", "price": 299, "image": "images/product_062.jpg", "short": "Pocket journal with comfort finish", "desc": "Soft cover pocket journal for notes and sketches.", "sale": 10, "rating": 4.7 },
+        { "id": 63, "name": "Active Field Notebook", "price": 349, "image": "images/product_063.jpg", "short": "Field notebook with active finish", "desc": "Durable notebook for outdoor and field use.", "sale": 0, "rating": 4.8 },
+        { "id": 64, "name": "Soft Leatherette Notebook", "price": 399, "image": "images/product_064.jpg", "short": "Leatherette notebook with soft finish", "desc": "Premium leatherette cover with stitched binding.", "sale": 0, "rating": 4.9 }
+      ]
+    },
+    {
+      "name": "Bags",
+      "items": [
+        { "id": 65, "name": "Classic Canvas Tote Bag", "price": 399, "image": "images/product_065.jpg", "short": "Canvas tote with classic finish", "desc": "Durable tote bag with reinforced handles.", "sale": 0, "rating": 4.0 },
+        { "id": 66, "name": "Premium Backpack", "price": 499, "image": "images/product_066.jpg", "short": "Backpack with premium finish", "desc": "Padded laptop compartment and ergonomic straps.", "sale": 0, "rating": 4.1 },
+        { "id": 67, "name": "Eco Drawstring Bag", "price": 599, "image": "images/product_067.jpg", "short": "Drawstring bag with eco finish", "desc": "Lightweight drawstring bag made from recycled fabric.", "sale": 0, "rating": 4.2 },
+        { "id": 68, "name": "Urban Laptop Sleeve", "price": 699, "image": "images/product_068.jpg", "short": "Laptop sleeve with urban finish", "desc": "Slim protective sleeve for laptops up to 15 inches.", "sale": 10, "rating": 4.3 },
+        { "id": 69, "name": "Vintage Tote Bag", "price": 799, "image": "images/product_069.jpg", "short": "Tote bag with vintage finish", "desc": "Retro-inspired tote with sturdy construction.", "sale": 0, "rating": 4.4 },
+        { "id": 70, "name": "Modern Sling Bag", "price": 899, "image": "images/product_070.jpg", "short": "Sling bag with modern finish", "desc": "Compact sling bag for essentials and daily commute.", "sale": 0, "rating": 4.5 },
+        { "id": 71, "name": "Signature Travel Backpack", "price": 999, "image": "images/product_071.jpg", "short": "Travel backpack with signature finish", "desc": "Spacious travel backpack with multiple compartments.", "sale": 0, "rating": 4.6 },
+        { "id": 72, "name": "Limited Edition Duffel", "price": 1099, "image": "images/product_072.jpg", "short": "Duffel bag with limited finish", "desc": "Limited edition duffel for weekend trips and gym use.", "sale": 0, "rating": 4.7 },
+        { "id": 73, "name": "Essential Tote Bag", "price": 1199, "image": "images/product_073.jpg", "short": "Tote bag with essential finish", "desc": "Everyday tote with clean design and durable fabric.", "sale": 0, "rating": 4.8 },
+        { "id": 74, "name": "Comfort Laptop Backpack", "price": 1299, "image": "images/product_074.jpg", "short": "Laptop backpack with comfort finish", "desc": "Padded back panel and comfortable straps for long wear.", "sale": 10, "rating": 4.9 },
+        { "id": 75, "name": "Active Gym Bag", "price": 1399, "image": "images/product_075.jpg", "short": "Gym bag with active finish", "desc": "Ventilated compartment and durable base for gym gear.", "sale": 0, "rating": 5.0 },
+        { "id": 76, "name": "Soft Leather Tote", "price": 1499, "image": "images/product_076.jpg", "short": "Leather tote with soft finish", "desc": "Premium leather-like material with elegant stitching.", "sale": 0, "rating": 4.0 }
+      ]
+    },
+    {
+      "name": "Stickers",
+      "items": [
+        { "id": 77, "name": "Classic Die-cut Sticker Pack", "price": 49, "image": "images/product_077.jpg", "short": "Die-cut sticker pack with classic finish", "desc": "High-quality vinyl stickers, weather-resistant.", "sale": 0, "rating": 4.1 },
+        { "id": 78, "name": "Premium Vinyl Sticker Set", "price": 79, "image": "images/product_078.jpg", "short": "Vinyl sticker set with premium finish", "desc": "Durable vinyl stickers with vibrant colors.", "sale": 0, "rating": 4.2 },
+        { "id": 79, "name": "Eco Sticker Pack", "price": 99, "image": "images/product_079.jpg", "short": "Sticker pack with eco finish", "desc": "Stickers printed on eco-friendly materials.", "sale": 0, "rating": 4.3 },
+        { "id": 80, "name": "Urban Sticker Sheet", "price": 129, "image": "images/product_080.jpg", "short": "Sticker sheet with urban finish", "desc": "Sheet of assorted stickers for laptops and notebooks.", "sale": 10, "rating": 4.4 },
+        { "id": 81, "name": "Vintage Sticker Pack", "price": 149, "image": "images/product_081.jpg", "short": "Sticker pack with vintage finish", "desc": "Retro-themed stickers with matte finish.", "sale": 0, "rating": 4.5 },
+        { "id": 82, "name": "Modern Sticker Set", "price": 179, "image": "images/product_082.jpg", "short": "Sticker set with modern finish", "desc": "Contemporary designs printed on durable vinyl.", "sale": 0, "rating": 4.6 },
+        { "id": 83, "name": "Signature Sticker Pack", "price": 199, "image": "images/product_083.jpg", "short": "Sticker pack with signature finish", "desc": "Curated sticker pack with premium prints.", "sale": 0, "rating": 4.7 },
+        { "id": 84, "name": "Limited Edition Sticker Sheet", "price": 229, "image": "images/product_084.jpg", "short": "Limited sticker sheet with special finish", "desc": "Limited run sticker sheet with exclusive designs.", "sale": 0, "rating": 4.8 },
+        { "id": 85, "name": "Essential Sticker Pack", "price": 249, "image": "images/product_085.jpg", "short": "Sticker pack with essential finish", "desc": "Basic sticker pack for everyday personalization.", "sale": 0, "rating": 4.9 },
+        { "id": 86, "name": "Comfort Sticker Set", "price": 99, "image": "images/product_086.jpg", "short": "Sticker set with comfort finish", "desc": "Soft-touch stickers with gentle adhesive.", "sale": 0, "rating": 5.0 },
+        { "id": 87, "name": "Active Vinyl Sticker Pack", "price": 129, "image": "images/product_087.jpg", "short": "Vinyl sticker pack with active finish", "desc": "Durable stickers suitable for outdoor use.", "sale": 10, "rating": 4.0 },
+        { "id": 88, "name": "Soft Matte Sticker Pack", "price": 149, "image": "images/product_088.jpg", "short": "Matte sticker pack with soft finish", "desc": "Matte finish stickers with subtle colors.", "sale": 0, "rating": 4.1 }
+      ]
+    },
+    {
+      "name": "Water Bottles",
+      "items": [
+        { "id": 89, "name": "Classic Steel Bottle", "price": 299, "image": "images/product_089.jpg", "short": "Steel bottle with classic finish", "desc": "Stainless steel bottle with leak-proof cap.", "sale": 0, "rating": 4.2 },
+        { "id": 90, "name": "Premium Insulated Bottle", "price": 349, "image": "images/product_090.jpg", "short": "Insulated bottle with premium finish", "desc": "Double-walled bottle keeps drinks hot or cold.", "sale": 0, "rating": 4.3 },
+        { "id": 91, "name": "Eco Glass Bottle", "price": 399, "image": "images/product_091.jpg", "short": "Glass bottle with eco finish", "desc": "Borosilicate glass bottle with protective sleeve.", "sale": 0, "rating": 4.4 },
+        { "id": 92, "name": "Urban Steel Bottle", "price": 449, "image": "images/product_092.jpg", "short": "Steel bottle with urban finish", "desc": "Durable steel bottle for daily hydration.", "sale": 10, "rating": 4.5 },
+        { "id": 93, "name": "Vintage Glass Bottle", "price": 499, "image": "images/product_093.jpg", "short": "Glass bottle with vintage finish", "desc": "Classic glass bottle with retro styling.", "sale": 0, "rating": 4.6 },
+        { "id": 94, "name": "Modern Insulated Bottle", "price": 599, "image": "images/product_094.jpg", "short": "Insulated bottle with modern finish", "desc": "Sleek insulated bottle for commuters.", "sale": 0, "rating": 4.7 },
+        { "id": 95, "name": "Signature Sport Bottle", "price": 699, "image": "images/product_095.jpg", "short": "Sport bottle with signature finish", "desc": "Sport-focused bottle with easy-sip cap.", "sale": 0, "rating": 4.8 },
+        { "id": 96, "name": "Limited Edition Bottle", "price": 799, "image": "images/product_096.jpg", "short": "Limited bottle with special finish", "desc": "Collector's edition bottle with unique print.", "sale": 0, "rating": 4.9 },
+        { "id": 97, "name": "Essential Steel Bottle", "price": 899, "image": "images/product_097.jpg", "short": "Steel bottle with essential finish", "desc": "Reliable steel bottle for everyday use.", "sale": 0, "rating": 5.0 },
+        { "id": 98, "name": "Comfort Glass Bottle", "price": 999, "image": "images/product_098.jpg", "short": "Glass bottle with comfort finish", "desc": "Comfort-grip sleeve and wide mouth for easy cleaning.", "sale": 10, "rating": 4.0 },
+        { "id": 99, "name": "Active Insulated Sport Bottle", "price": 1199, "image": "images/product_099.jpg", "short": "Insulated sport bottle with active finish", "desc": "Designed for athletes with superior insulation.", "sale": 0, "rating": 4.1 },
+        { "id": 100, "name": "Soft Travel Bottle", "price": 1399, "image": "images/product_100.jpg", "short": "Travel bottle with soft finish", "desc": "Premium travel bottle with leak-proof design and carry handle.", "sale": 0, "rating": 4.2 }
+>>>>>>> aad1485 (tet)
       ]
     }
   ]
