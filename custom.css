@@ -98,3 +98,10 @@ body { background: linear-gradient(180deg,#f4f8ff 0%, #ffffff 60%); color: #0b1a
   .card-img-top { height:180px; }
   .offcanvas { --bs-offcanvas-width: 100%; }
 }
+
+/* fallback if Tailwind not present */
+#cartDrawer { transition: transform .3s ease-in-out; }
+.translate-x-full { transform: translateX(100%); }
+.translate-x-0 { transform: translateX(0); }
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
