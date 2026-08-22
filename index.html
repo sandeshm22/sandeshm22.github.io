@@ -1,101 +1,109 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<meta charset='utf-8'>
-	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-	<title>Sandesh Mutha : Jack of All Master of None</title>
-	<meta name='viewport' content='width=device-width, initial-scale=1'>
-	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-	<script src='main.js'></script>
+  <meta charset="UTF-8">
+  <title>Magical Moments Merchandise</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<body class="container py-4">
 
-<body>
-	<header class="text-gray-700 body-font">
-		<div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-			<a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
-					stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-red-500 rounded-full"
-					viewBox="0 0 24 24">
-					<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-				</svg>
-				<span class="ml-3 text-xl">Sandesh Mutha
-					<!--br style="width: 0em;" />
-					<font size="1">Jack of All Master of None</font-->
-				</span>
-			</a>
-			<nav
-				class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-				<a class="mr-5 hover:text-gray-900" href="index.html">Home</a>
-				<a class="mr-5 hover:text-gray-900" href='services.html'>Technology Dossier</a>
-				<a class="mr-5 hover:text-gray-900" href='journey.html'>Journey</a>
-				<a class="mr-5 hover:text-gray-900" href='contact.html'>Contact</a>
-			</nav>
-		</div>
-	</header>
-	<hr />
-	<section class="text-gray-700 body-font">
-		<div class="container px-5 py-24 mx-auto flex flex-wrap">
-			<h2 class="sm:text-3xl text-2xl text-gray-900 font-medium title-font mb-2 md:w-2/5"><img
-					src='img/about-img.png' /></h2>
-			<div class="md:w-3/5 md:pl-6">
-				<p class="leading-relaxed text-base"><b><em>Sandesh Mutha,
-							Software Engineer
+  <h1 class="mb-4 text-primary">Magical Moments Merchandise</h1>
 
-						</em></b>
-					<br />
-					<br />
+  <!-- Search -->
+  <div class="mb-3">
+    <label for="searchInput" class="form-label">Search Products</label>
+    <input type="text" id="searchInput" class="form-control" placeholder="Type to search..." onkeyup="searchProducts()">
+  </div>
 
-					Software Engineering was the buzz around in the society when I passed my standard X . It had an
-					impact on many of the lives of the people who passed out that year that included me. A passionate
-					developer who dwells on learning new things as a part of his work is being described as my
-					personality among my colleagues; not sure if its 100% correct but I get solace from what I do rather
-					what people think of me.
+  <!-- Category Filter -->
+  <div class="mb-3">
+    <label for="categoryFilter" class="form-label">Filter by Category</label>
+    <select id="categoryFilter" class="form-select" onchange="filterCategory()">
+      <option value="all">All Categories</option>
+    </select>
+  </div>
 
-					<br />
+  <!-- Product List -->
+  <div id="productList" class="row"></div>
 
-			</div>
+  <!-- Cart -->
+  <div class="card mt-4">
+    <div class="card-body">
+      <h2 class="card-title">Your Cart</h2>
+      <ul id="cartItems" class="list-group mb-3"></ul>
+      <p id="total" class="fw-bold"></p>
+      <a id="whatsappLink" class="btn btn-success" target="_blank">Order on WhatsApp</a>
+      <button id="payButton" class="btn btn-warning ms-2">Pay Now</button>
+    </div>
+  </div>
 
-		</div>
-	</section>
-	<footer class="text-gray-700 body-font">
-		<div class="bg-gray-200">
-			<div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-				<span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-					<a class="text-gray-500">
-						<svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-							class="w-5 h-5" viewBox="0 0 24 24">
-							<path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-						</svg>
-					</a>
-					<a class="ml-3 text-gray-500">
-						<svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-							class="w-5 h-5" viewBox="0 0 24 24">
-							<path
-								d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
-							</path>
-						</svg>
-					</a>
-					<a class="ml-3 text-gray-500">
-						<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-							stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-							<rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-							<path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-						</svg>
-					</a>
-					<a class="ml-3 text-gray-500">
-						<svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-							stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
-							<path stroke="none"
-								d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
-							</path>
-							<circle cx="4" cy="4" r="2" stroke="none"></circle>
-						</svg>
-					</a>
-				</span>
-			</div>
-		</div>
-	</footer>
+  <!-- About Us -->
+  <div class="card mt-4">
+    <div class="card-body">
+      <h2 class="card-title">About Us</h2>
+      <p>
+        At Magical Moments Merchandise, we specialize in customized gifting and merchandise 
+        for IT companies and individuals. Our mission is to create memorable products 
+        that blend creativity with quality, serving Pune and beyond.
+      </p>
+    </div>
+  </div>
+
+  <!-- Location -->
+  <div class="card mt-4">
+    <div class="card-body">
+      <h2 class="card-title">Our Location</h2>
+      <p><strong>Address:</strong> Near Juniors Orchid School, Rajmata Jijau Marg, Pimple Gurav, Pune-411061</p>
+      <iframe 
+        src="https://www.google.com/maps/embed/v1/place?q=Pimple+Gurav+Pune&key=YOUR_API_KEY" 
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Reviews -->
+  <div class="card mt-4">
+    <div class="card-body">
+      <h2 class="card-title">Customer Reviews</h2>
+      <ul class="list-group">
+        <li class="list-group-item">⭐⭐⭐⭐⭐ "Professional photographers, great mix of styles." – Shraddha</li>
+        <li class="list-group-item">⭐⭐⭐⭐⭐ "One-of-a-kind studio for kids, excellent themes." – Deepak</li>
+        <li class="list-group-item">⭐⭐⭐⭐⭐ "High-quality pre and post-production work." – Verified Customer</li>
+      </ul>
+      <p class="mt-2"><strong>Overall Rating:</strong> 4.9 / 5 (159 reviews)</p>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="card mt-4">
+    <div class="card-body">
+      <h2 class="card-title">Contact Us</h2>
+      <form id="contactForm" onsubmit="sendContact(event)">
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name</label>
+          <input type="text" id="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Your Email</label>
+          <input type="email" id="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" class="form-control" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send via Email</button>
+        <a id="whatsappContact" class="btn btn-success ms-2" target="_blank">Send via WhatsApp</a>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="toastContainer"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
