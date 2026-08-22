@@ -1,268 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magical Moments Merchandise</title>
+  <title>Magical Moments Marketplace</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Tailwind (CDN for prototyping) -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Bootstrap Icons -->
+  <!-- Flowbite (Tailwind components) -->
+  <link href="https://unpkg.com/flowbite@1.7.0/dist/flowbite.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/flowbite@1.7.0/dist/flowbite.min.js" defer></script>
+
+  <!-- Alpine.js -->
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+  <!-- Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #4b6cb7;
+      --accent-2: #182848;
+    }
 
-  <!-- Custom CSS -->
-  <link href="custom.css" rel="stylesheet">
+    body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 60%);
+      color: #0b1a2b;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(6px);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .product-img {
+      height: 220px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .card-hover {
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(20, 30, 60, 0.08);
+    }
+
+    .badge-price {
+      background: linear-gradient(90deg, #ffd89b, #ffb347);
+      color: #111;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 10px;
+    }
+
+    .flow-toast {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 60;
+    }
+  </style>
 </head>
-<body>
+
+<body class="min-h-screen">
 
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark nav-glass py-2 shadow-sm">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-        <img src="images/logo.png" alt="logo" class="me-2 logo" onerror="this.style.display='none'">
-        <div class="brand-text">
-          <div class="h6 mb-0">Magical Moments</div>
-          <small class="text-muted">Merch & Gifts • Pune</small>
+  <nav class="sticky top-0 z-40 bg-white/60 backdrop-blur border-b">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="images/logo.png" alt="logo" class="w-10 h-10 rounded-md shadow-sm"
+          onerror="this.style.display='none'">
+        <div>
+          <div class="font-semibold text-lg">Magical Moments</div>
+          <div class="text-xs text-slate-500">Merch & Gifts • Pune</div>
         </div>
-      </a>
+      </div>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="flex items-center gap-3">
+        <div class="hidden md:flex items-center gap-3">
+          <div class="relative">
+            <input id="searchInput" onkeyup="searchProducts()"
+              class="pl-10 pr-3 py-2 rounded-full border border-slate-200 w-80 focus:outline-none focus:ring-2 focus:ring-indigo-200"
+              placeholder="Search products, e.g., 'mug'">
+            <span class="absolute left-3 top-2 text-slate-400"><i class="bi bi-search"></i></span>
+          </div>
 
-      <div class="collapse navbar-collapse" id="navMain">
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
-          <li class="nav-item me-2 d-none d-lg-block">
-            <div class="input-group input-group-sm search-pill">
-              <span class="input-group-text bg-transparent border-0"><i class="bi bi-search"></i></span>
-              <input id="searchInput" class="form-control form-control-sm border-0" placeholder="Search products..." onkeyup="searchProducts()">
-            </div>
-          </li>
+          <select id="categoryFilter" onchange="filterCategory()"
+            class="py-2 px-3 rounded-full border border-slate-200">
+            <option value="all">All Categories</option>
+          </select>
 
-          <li class="nav-item me-2 d-none d-lg-block">
-            <select id="categoryFilter" class="form-select form-select-sm filter-pill" onchange="filterCategory()">
-              <option value="all">All Categories</option>
-            </select>
-          </li>
+          <select id="sortSelect" onchange="sortProducts()" class="py-2 px-3 rounded-full border border-slate-200">
+            <option value="relevance">Sort: Relevance</option>
+            <option value="price_asc">Price: Low → High</option>
+            <option value="price_desc">Price: High → Low</option>
+            <option value="rating_desc">Rating: High → Low</option>
+          </select>
+        </div>
 
-          <li class="nav-item">
-            <button class="btn btn-outline-light position-relative cart-btn" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-label="Open cart">
-              <i class="bi bi-cart3 fs-5"></i>
-              <span id="cartCountBadge" class="badge cart-badge">0</span>
-            </button>
-          </li>
-        </ul>
+        <button id="mobileFiltersBtn" class="md:hidden p-2 rounded-full bg-white/80 shadow-sm"
+          onclick="openMobileFilters()">
+          <i class="bi bi-funnel"></i>
+        </button>
+
+        <button id="openCartBtn" class="relative p-2 rounded-full bg-white/80 shadow-sm" aria-label="Open cart">
+          <i class="bi bi-cart3 text-xl"></i>
+          <span id="cartCountBadge"
+            class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs px-2">0</span>
+        </button>
+
       </div>
     </div>
   </nav>
 
-  <!-- HERO / FEATURED CAROUSEL -->
-  <header class="hero py-5">
-    <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-6">
-          <h1 class="display-5 fw-bold">Custom Merchandise that Tells a Story</h1>
-          <p class="lead text-muted">Premium T‑shirts, mugs, and corporate gifting — crafted with care in Pune.</p>
-          <div class="mt-3">
-            <a href="#productList" class="btn btn-primary btn-lg me-2">Shop Now</a>
-            <a href="#about" class="btn btn-outline-primary btn-lg">About Us</a>
-          </div>
-          <div class="mt-4 d-flex gap-3">
-            <div class="stat">
-              <div class="stat-value">4.9</div>
-              <div class="stat-label">Rating</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">159+</div>
-              <div class="stat-label">Reviews</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">1000+</div>
-              <div class="stat-label">Happy Customers</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div id="featuredCarousel" class="carousel slide shadow-lg rounded-4" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="images/hero-1.jpg" class="d-block w-100 hero-img" alt="Featured 1" onerror="this.style.display='none'">
-              </div>
-              <div class="carousel-item">
-                <img src="images/hero-2.jpg" class="d-block w-100 hero-img" alt="Featured 2" onerror="this.style.display='none'">
-              </div>
-              <div class="carousel-item">
-                <img src="images/hero-3.jpg" class="d-block w-100 hero-img" alt="Featured 3" onerror="this.style.display='none'">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </button>
-          </div>
-        </div>
+  <!-- HERO -->
+  <header class="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-2 gap-6 items-center">
+    <div>
+      <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">Custom Merchandise that Tells a Story</h1>
+      <p class="text-slate-600 mt-3">Premium T‑shirts, mugs, hoodies and corporate gifting — crafted with care in Pune.
+        Fast turnarounds for bulk orders.</p>
+      <div class="mt-4 flex gap-3">
+        <a href="#productList"
+          class="px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 text-white shadow">Shop Now</a>
+        <a href="#about" class="px-4 py-2 rounded-lg border border-slate-200">About Us</a>
       </div>
+    </div>
+    <div class="rounded-lg overflow-hidden shadow-lg">
+      <img src="images/hero-1.jpg" alt="hero" class="w-full h-64 object-cover"
+        onerror="this.src='images/placeholder.png'">
     </div>
   </header>
 
-  <main class="container my-5">
-    <!-- Product Grid -->
-    <section id="productList" class="row g-4"></section>
+  <!-- MAIN -->
+  <main class="max-w-7xl mx-auto px-4 pb-12 grid grid-cols-1 lg:grid-cols-4 gap-6">
+    <!-- LEFT: Filters (desktop) -->
+    <aside class="hidden lg:block lg:col-span-1">
+      <div class="glass p-4 sticky top-24">
+        <h4 class="font-semibold mb-3">Filters</h4>
 
-    <!-- No results -->
-    <div id="noResults" class="text-center text-muted my-5 d-none">
-      <i class="bi bi-emoji-frown display-4"></i>
-      <p class="mt-3">No products match your search.</p>
-    </div>
-
-    <!-- About -->
-    <section id="about" class="mt-5">
-      <div class="card glass-card shadow-sm">
-        <div class="card-body">
-          <h2 class="card-title">About Us</h2>
-          <p class="card-text text-muted">
-            At <strong>Magical Moments Merchandise</strong> we craft memorable corporate gifts and personalized merchandise.
-            Based in Pune, we blend creativity with premium materials to deliver products your team and clients will love.
-          </p>
+        <div class="mb-4">
+          <label class="block text-sm text-slate-600 mb-1">Price range</label>
+          <div class="flex gap-2">
+            <input id="minPrice" type="number" placeholder="Min" class="w-1/2 p-2 border rounded">
+            <input id="maxPrice" type="number" placeholder="Max" class="w-1/2 p-2 border rounded">
+          </div>
+          <button class="mt-2 px-3 py-2 bg-indigo-600 text-white rounded" onclick="applyPriceFilter()">Apply</button>
         </div>
-      </div>
-    </section>
 
-    <!-- Location & Reviews -->
-    <div class="row mt-4">
-      <div class="col-lg-6">
-        <div class="card glass-card shadow-sm">
-          <div class="card-body">
-            <h3 class="card-title">Our Location</h3>
-            <p class="text-muted mb-2"><strong>Address:</strong> Near Juniors Orchid School, Rajmata Jijau Marg, Pimple Gurav, Pune-411061</p>
-            <div class="ratio ratio-16x9 rounded">
-              <iframe src="https://www.google.com/maps/embed/v1/place?q=Pimple+Gurav+Pune&key=YOUR_API_KEY" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+        <div>
+          <label class="block text-sm text-slate-600 mb-2">Rating</label>
+          <div class="flex gap-2">
+            <button class="px-3 py-1 border rounded text-sm" onclick="applyRatingFilter(4)">4★ & up</button>
+            <button class="px-3 py-1 border rounded text-sm" onclick="applyRatingFilter(3)">3★ & up</button>
+            <button class="px-3 py-1 border rounded text-sm" onclick="applyRatingFilter(0)">All</button>
           </div>
         </div>
       </div>
+    </aside>
 
-      <div class="col-lg-6 mt-3 mt-lg-0">
-        <div class="card glass-card shadow-sm">
-          <div class="card-body">
-            <h3 class="card-title">Customer Reviews</h3>
-            <div class="d-flex align-items-center mb-3">
-              <div class="display-6 text-warning me-3">⭐ 4.9</div>
-              <div>
-                <div class="small text-muted">Based on 159 reviews</div>
-                <div class="small text-muted">Trusted by families & companies across Pune</div>
-              </div>
-            </div>
+    <!-- CENTER: Products -->
+    <section id="productList" class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></section>
 
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">⭐⭐⭐⭐⭐ "Professional photographers, great mix of styles." – Shraddha</li>
-              <li class="list-group-item">⭐⭐⭐⭐⭐ "One-of-a-kind studio for kids, excellent themes." – Deepak</li>
-              <li class="list-group-item">⭐⭐⭐⭐⭐ "High-quality pre and post-production work." – Verified Customer</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div id="noResults" class="hidden lg:col-span-3 text-center text-slate-500 mt-12">
+      <i class="bi bi-emoji-frown text-4xl"></i>
+      <p class="mt-3">No products match your search or filters.</p>
     </div>
 
-    <!-- Contact -->
-    <section class="mt-4">
-      <div class="card glass-card shadow-sm">
-        <div class="card-body">
-          <h3 class="card-title">Contact Us</h3>
-          <form id="contactForm" class="row g-3" onsubmit="sendContact(event)">
-            <div class="col-md-4">
-              <label class="form-label">Name</label>
-              <input id="name" class="form-control" required>
-            </div>
-            <div class="col-md-4">
-              <label class="form-label">Email</label>
-              <input id="email" type="email" class="form-control" required>
-            </div>
-            <div class="col-md-4">
-              <label class="form-label">Phone</label>
-              <input id="phone" class="form-control" placeholder="Optional">
-            </div>
-            <div class="col-12">
-              <label class="form-label">Message</label>
-              <textarea id="message" class="form-control" rows="3" required></textarea>
-            </div>
-            <div class="col-12">
-              <button class="btn btn-primary">Send via Email</button>
-              <a id="whatsappContact" class="btn btn-success ms-2" target="_blank">Send via WhatsApp</a>
-            </div>
-          </form>
-        </div>
+    <!-- ABOUT & CONTACT (below grid on small screens) -->
+    <section id="about" class="lg:col-span-3 mt-6">
+      <div class="glass p-6">
+        <h2 class="text-2xl font-semibold">About Us</h2>
+        <p class="text-slate-600 mt-2">At Magical Moments we craft memorable corporate gifts and personalized
+          merchandise. Based in Pune, we blend creativity with premium materials to deliver products your team and
+          clients will love.</p>
       </div>
     </section>
 
+    <section class="lg:col-span-3 mt-6">
+      <div class="glass p-6">
+        <h3 class="text-lg font-semibold">Contact Us</h3>
+        <form id="contactForm" class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4" onsubmit="sendContact(event)">
+          <input id="name" required class="p-3 border rounded-md" placeholder="Your name">
+          <input id="email" type="email" required class="p-3 border rounded-md" placeholder="Your email">
+          <input id="phone" class="p-3 border rounded-md" placeholder="Phone (optional)">
+          <textarea id="message" required class="md:col-span-3 p-3 border rounded-md" rows="4"
+            placeholder="Message"></textarea>
+          <div class="md:col-span-3 flex gap-3">
+            <button class="px-4 py-2 bg-indigo-600 text-white rounded-md">Send via Email</button>
+            <a id="whatsappContact" class="px-4 py-2 bg-green-500 text-white rounded-md" target="_blank">Send via
+              WhatsApp</a>
+          </div>
+        </form>
+      </div>
+    </section>
   </main>
 
-  <!-- OFFCANVAS CART -->
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title">Your Cart</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body d-flex flex-column">
-      <ul id="cartItems" class="list-group mb-3"></ul>
-      <div class="mt-auto">
-        <p id="total" class="fw-bold"></p>
-        <div class="d-flex gap-2">
-          <a id="whatsappLink" class="btn btn-success w-100" target="_blank"><i class="bi bi-whatsapp me-2"></i>Order on WhatsApp</a>
-          <button id="payButton" class="btn btn-warning w-100">Pay Now</button>
-        </div>
+  <!-- CART DRAWER (Flowbite drawer) -->
+<div id="cartDrawer" class="fixed right-0 top-0 h-full w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 pointer-events-none" aria-hidden="true" role="dialog" aria-label="Shopping cart">
+  <div class="p-4 flex items-center justify-between border-b">
+    <h4 class="font-semibold">Your Cart</h4>
+    <button id="closeCartBtn" class="text-slate-500" aria-label="Close cart">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+
+  <div class="p-4 flex flex-col h-full">
+    <ul id="cartItems" class="space-y-3 overflow-auto"></ul>
+
+    <div class="mt-auto">
+      <p id="total" class="font-semibold text-lg mt-4">Total: ₹0</p>
+      <div class="flex gap-3 mt-3">
+        <a id="whatsappLink" class="flex-1 px-4 py-2 bg-green-500 text-white rounded-md text-center" target="_blank"><i class="bi bi-whatsapp me-2"></i>Order on WhatsApp</a>
+        <button id="payButton" class="flex-1 px-4 py-2 bg-amber-400 text-slate-900 rounded-md">Pay Now</button>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- PRODUCT QUICK VIEW MODAL -->
-  <div class="modal fade" id="productModal" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content rounded-4">
-        <div class="modal-body p-4">
-          <div class="row g-3">
-            <div class="col-md-6">
-              <img id="modalImage" src="" class="img-fluid rounded" alt="product">
+
+  <!-- QUICK VIEW MODAL -->
+  <div id="productModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-lg max-w-4xl w-full overflow-hidden">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+        <img id="modalImage" src="images/placeholder.png" alt="product" class="w-full h-64 object-cover rounded">
+        <div>
+          <h3 id="modalName" class="text-xl font-semibold"></h3>
+          <div id="modalPrice" class="text-indigo-600 font-bold mt-2"></div>
+          <div id="modalRating" class="mt-2 text-sm text-slate-500"></div>
+          <p id="modalDesc" class="text-slate-600 mt-3"></p>
+          <div class="flex items-center gap-3 mt-4">
+            <div class="flex items-center border rounded">
+              <button id="modalQtyMinus" class="px-3">-</button>
+              <input id="modalQty" class="w-12 text-center" value="1" readonly>
+              <button id="modalQtyPlus" class="px-3">+</button>
             </div>
-            <div class="col-md-6">
-              <h4 id="modalName"></h4>
-              <div class="mb-2 text-muted" id="modalPrice"></div>
-              <div id="modalRating" class="mb-2"></div>
-              <p id="modalDesc" class="text-muted">High quality product.</p>
-              <div class="d-flex align-items-center gap-2 mb-3">
-                <div class="input-group input-group-sm w-50">
-                  <button class="btn btn-outline-secondary" id="modalQtyMinus">-</button>
-                  <input id="modalQty" class="form-control text-center" value="1" readonly>
-                  <button class="btn btn-outline-secondary" id="modalQtyPlus">+</button>
-                </div>
-                <button id="modalAddBtn" class="btn btn-primary">Add to Cart</button>
-              </div>
-              <div class="small text-muted">Free pickup from Pimple Gurav. Delivery available.</div>
-            </div>
+            <button id="modalAddBtn" class="px-4 py-2 bg-indigo-600 text-white rounded">Add to Cart</button>
           </div>
         </div>
-        <div class="modal-footer border-0">
-          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
+      </div>
+      <div class="flex justify-end p-4 border-t">
+        <button id="modalClose" class="px-4 py-2 bg-slate-100 rounded">Close</button>
       </div>
     </div>
   </div>
 
   <!-- Toast container -->
-  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
-    <div id="toastContainer"></div>
-  </div>
+  <div id="toastContainer" class="flow-toast"></div>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Razorpay checkout -->
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <!-- App script -->
   <script src="script.js"></script>
 </body>
+
 </html>
