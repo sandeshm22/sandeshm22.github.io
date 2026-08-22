@@ -1,0 +1,17 @@
+{
+  "categories": [
+    {
+      "name": "T-Shirts",
+      "items": [
+        { "id": 1, "name": "Black Logo Tee", "price": 499, "image": "images/tshirt_black.png" },
+        { "id": 2, "name": "White Logo Tee", "price": 499, "image": "images/tshirt_white.png" }
+      ]
+    },
+    {
+      "name": "Mugs",
+      "items": [
+        { "id": 3, "name": "Ceramic Mug", "price": 299, "image": "images/mug_ceramic.png" }
+      ]
+    }
+  ]
+}
