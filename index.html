@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -19,65 +18,16 @@
   <!-- Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-  <style>
-    :root {
-      --accent: #4b6cb7;
-      --accent-2: #182848;
-    }
-
-    body {
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 60%);
-      color: #0b1a2b;
-    }
-
-    .glass {
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(6px);
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-    }
-
-    .product-img {
-      height: 220px;
-      object-fit: cover;
-      width: 100%;
-    }
-
-    .card-hover {
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-
-    .card-hover:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(20, 30, 60, 0.08);
-    }
-
-    .badge-price {
-      background: linear-gradient(90deg, #ffd89b, #ffb347);
-      color: #111;
-      font-weight: 700;
-      padding: 6px 10px;
-      border-radius: 10px;
-    }
-
-    .flow-toast {
-      position: fixed;
-      right: 1rem;
-      bottom: 1rem;
-      z-index: 60;
-    }
-  </style>
+  <!-- Theme overrides -->
+  <link href="theme.css" rel="stylesheet">
 </head>
+<body class="bg-gradient-to-b from-slate-50 to-white text-slate-900">
 
-<body class="min-h-screen">
-
-  <!-- NAVBAR -->
-  <nav class="sticky top-0 z-40 bg-white/60 backdrop-blur border-b">
+  <!-- NAV -->
+  <nav class="sticky top-0 z-40 bg-white/70 backdrop-blur border-b">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
       <div class="flex items-center gap-3">
-        <img src="images/logo.png" alt="logo" class="w-10 h-10 rounded-md shadow-sm"
-          onerror="this.style.display='none'">
+        <img src="images/logo.png" alt="logo" class="w-10 h-10 rounded-md shadow-sm" onerror="this.style.display='none'">
         <div>
           <div class="font-semibold text-lg">Magical Moments</div>
           <div class="text-xs text-slate-500">Merch & Gifts • Pune</div>
@@ -87,14 +37,11 @@
       <div class="flex items-center gap-3">
         <div class="hidden md:flex items-center gap-3">
           <div class="relative">
-            <input id="searchInput" onkeyup="searchProducts()"
-              class="pl-10 pr-3 py-2 rounded-full border border-slate-200 w-80 focus:outline-none focus:ring-2 focus:ring-indigo-200"
-              placeholder="Search products, e.g., 'mug'">
+            <input id="searchInput" onkeyup="searchProducts()" class="pl-10 pr-3 py-2 rounded-full border border-slate-200 w-80 focus:outline-none focus:ring-2 focus:ring-indigo-200" placeholder="Search products, e.g., mug, tee">
             <span class="absolute left-3 top-2 text-slate-400"><i class="bi bi-search"></i></span>
           </div>
 
-          <select id="categoryFilter" onchange="filterCategory()"
-            class="py-2 px-3 rounded-full border border-slate-200">
+          <select id="categoryFilter" onchange="filterCategory()" class="py-2 px-3 rounded-full border border-slate-200">
             <option value="all">All Categories</option>
           </select>
 
@@ -106,42 +53,42 @@
           </select>
         </div>
 
-        <button id="mobileFiltersBtn" class="md:hidden p-2 rounded-full bg-white/80 shadow-sm"
-          onclick="openMobileFilters()">
+        <button id="mobileFiltersBtn" class="md:hidden p-2 rounded-full bg-white/80 shadow-sm" onclick="openMobileFilters()">
           <i class="bi bi-funnel"></i>
         </button>
 
         <button id="openCartBtn" class="relative p-2 rounded-full bg-white/80 shadow-sm" aria-label="Open cart">
           <i class="bi bi-cart3 text-xl"></i>
-          <span id="cartCountBadge"
-            class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs px-2">0</span>
+          <span id="cartCountBadge" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs px-2">0</span>
         </button>
-
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
-  <header class="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-2 gap-6 items-center">
+  <header class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-6 items-center">
     <div>
-      <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">Custom Merchandise that Tells a Story</h1>
-      <p class="text-slate-600 mt-3">Premium T‑shirts, mugs, hoodies and corporate gifting — crafted with care in Pune.
-        Fast turnarounds for bulk orders.</p>
-      <div class="mt-4 flex gap-3">
-        <a href="#productList"
-          class="px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 text-white shadow">Shop Now</a>
-        <a href="#about" class="px-4 py-2 rounded-lg border border-slate-200">About Us</a>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Custom Merchandise that Tells a Story</h1>
+      <p class="text-slate-600 mt-4 max-w-xl">Premium T‑shirts, mugs, hoodies and corporate gifting — crafted with care in Pune. Fast turnarounds for bulk orders and personalized designs.</p>
+      <div class="mt-6 flex gap-3">
+        <a href="#productList" class="px-5 py-3 rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 text-white shadow-lg">Shop Now</a>
+        <a href="#about" class="px-5 py-3 rounded-lg border border-slate-200">About Us</a>
+      </div>
+      <div class="mt-6 flex gap-6 text-sm text-slate-500">
+        <div><strong class="text-indigo-700">4.9</strong> Rating</div>
+        <div><strong class="text-indigo-700">159+</strong> Reviews</div>
+        <div><strong class="text-indigo-700">1000+</strong> Customers</div>
       </div>
     </div>
-    <div class="rounded-lg overflow-hidden shadow-lg">
-      <img src="images/hero-1.jpg" alt="hero" class="w-full h-64 object-cover"
-        onerror="this.src='images/placeholder.png'">
+
+    <div class="rounded-xl overflow-hidden shadow-xl hero-card">
+      <img src="images/hero-1.jpg" alt="hero" class="w-full h-72 object-cover" onerror="this.src='images/placeholder.png'">
     </div>
   </header>
 
   <!-- MAIN -->
   <main class="max-w-7xl mx-auto px-4 pb-12 grid grid-cols-1 lg:grid-cols-4 gap-6">
-    <!-- LEFT: Filters (desktop) -->
+    <!-- LEFT: Filters -->
     <aside class="hidden lg:block lg:col-span-1">
       <div class="glass p-4 sticky top-24">
         <h4 class="font-semibold mb-3">Filters</h4>
@@ -166,7 +113,7 @@
       </div>
     </aside>
 
-    <!-- CENTER: Products -->
+    <!-- PRODUCTS GRID -->
     <section id="productList" class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></section>
 
     <div id="noResults" class="hidden lg:col-span-3 text-center text-slate-500 mt-12">
@@ -174,16 +121,15 @@
       <p class="mt-3">No products match your search or filters.</p>
     </div>
 
-    <!-- ABOUT & CONTACT (below grid on small screens) -->
+    <!-- ABOUT -->
     <section id="about" class="lg:col-span-3 mt-6">
       <div class="glass p-6">
         <h2 class="text-2xl font-semibold">About Us</h2>
-        <p class="text-slate-600 mt-2">At Magical Moments we craft memorable corporate gifts and personalized
-          merchandise. Based in Pune, we blend creativity with premium materials to deliver products your team and
-          clients will love.</p>
+        <p class="text-slate-600 mt-2">At Magical Moments we craft memorable corporate gifts and personalized merchandise. Based in Pune, we blend creativity with premium materials to deliver products your team and clients will love.</p>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section class="lg:col-span-3 mt-6">
       <div class="glass p-6">
         <h3 class="text-lg font-semibold">Contact Us</h3>
@@ -191,40 +137,33 @@
           <input id="name" required class="p-3 border rounded-md" placeholder="Your name">
           <input id="email" type="email" required class="p-3 border rounded-md" placeholder="Your email">
           <input id="phone" class="p-3 border rounded-md" placeholder="Phone (optional)">
-          <textarea id="message" required class="md:col-span-3 p-3 border rounded-md" rows="4"
-            placeholder="Message"></textarea>
+          <textarea id="message" required class="md:col-span-3 p-3 border rounded-md" rows="4" placeholder="Message"></textarea>
           <div class="md:col-span-3 flex gap-3">
             <button class="px-4 py-2 bg-indigo-600 text-white rounded-md">Send via Email</button>
-            <a id="whatsappContact" class="px-4 py-2 bg-green-500 text-white rounded-md" target="_blank">Send via
-              WhatsApp</a>
+            <a id="whatsappContact" class="px-4 py-2 bg-green-500 text-white rounded-md" target="_blank">Send via WhatsApp</a>
           </div>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- CART DRAWER (Flowbite drawer) -->
-<div id="cartDrawer" class="fixed right-0 top-0 h-full w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 pointer-events-none" aria-hidden="true" role="dialog" aria-label="Shopping cart">
-  <div class="p-4 flex items-center justify-between border-b">
-    <h4 class="font-semibold">Your Cart</h4>
-    <button id="closeCartBtn" class="text-slate-500" aria-label="Close cart">
-      <i class="bi bi-x-lg"></i>
-    </button>
-  </div>
-
-  <div class="p-4 flex flex-col h-full">
-    <ul id="cartItems" class="space-y-3 overflow-auto"></ul>
-
-    <div class="mt-auto">
-      <p id="total" class="font-semibold text-lg mt-4">Total: ₹0</p>
-      <div class="flex gap-3 mt-3">
-        <a id="whatsappLink" class="flex-1 px-4 py-2 bg-green-500 text-white rounded-md text-center" target="_blank"><i class="bi bi-whatsapp me-2"></i>Order on WhatsApp</a>
-        <button id="payButton" class="flex-1 px-4 py-2 bg-amber-400 text-slate-900 rounded-md">Pay Now</button>
+  <!-- CART DRAWER -->
+  <div id="cartDrawer" class="fixed right-0 top-0 h-full w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 pointer-events-none" aria-hidden="true" role="dialog" aria-label="Shopping cart">
+    <div class="p-4 flex items-center justify-between border-b">
+      <h4 class="font-semibold">Your Cart</h4>
+      <button id="closeCartBtn" class="text-slate-500" aria-label="Close cart"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="p-4 flex flex-col h-full">
+      <ul id="cartItems" class="space-y-3 overflow-auto"></ul>
+      <div class="mt-auto">
+        <p id="total" class="font-semibold text-lg mt-4">Total: ₹0</p>
+        <div class="flex gap-3 mt-3">
+          <a id="whatsappLink" class="flex-1 px-4 py-2 bg-green-500 text-white rounded-md text-center" target="_blank"><i class="bi bi-whatsapp me-2"></i>Order on WhatsApp</a>
+          <button id="payButton" class="flex-1 px-4 py-2 bg-amber-400 text-slate-900 rounded-md">Pay Now</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
 
   <!-- QUICK VIEW MODAL -->
   <div id="productModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -253,7 +192,7 @@
   </div>
 
   <!-- Toast container -->
-  <div id="toastContainer" class="flow-toast"></div>
+  <div id="toastContainer" class="fixed right-6 bottom-6 z-50 space-y-2"></div>
 
   <!-- Razorpay checkout -->
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -261,5 +200,4 @@
   <!-- App script -->
   <script src="script.js"></script>
 </body>
-
 </html>
