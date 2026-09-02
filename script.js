@@ -1,14 +1,14 @@
-/* script.js - Tailwind + Flowbite polished UI
-   Features: improved rendering, search, category filter, sorting, price & rating filters,
-   pagination, animated add-to-cart, cart drawer, quick-view modal, placeholder fallback,
-   contact form, Razorpay trigger.
+/* script.js - Vibrant Marketplace frontend
+   - Loads products.json
+   - Renders product grid (Tailwind cards)
+   - Search, category filter, sort, price & rating filters
+   - Pagination, animated add-to-cart, cart drawer, quick view modal
+   - Placeholder image fallback
 */
 
-/* ---------- Image fallback ---------- */
-(function installImageFallback() {
+(function imageFallback() {
   const placeholder = 'images/placeholder.png';
   const _ph = new Image(); _ph.src = placeholder;
-
   document.addEventListener('error', function (e) {
     const tgt = e.target;
     if (tgt && tgt.tagName === 'IMG') {
@@ -18,7 +18,6 @@
       }
     }
   }, true);
-
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('img').forEach(img => {
       if (!img.getAttribute('src')) img.src = placeholder;
@@ -26,7 +25,6 @@
   });
 })();
 
-/* ---------- State ---------- */
 let productsData = null;
 let cart = [];
 let currentCategory = 'all';
@@ -37,7 +35,6 @@ let ratingFilter = 0;
 let page = 1;
 const PAGE_SIZE = 12;
 
-/* ---------- DOM helpers ---------- */
 const el = id => document.getElementById(id);
 const productListEl = () => el('productList');
 const cartCountBadge = () => el('cartCountBadge');
@@ -45,7 +42,6 @@ const cartItemsEl = () => el('cartItems');
 const totalEl = () => el('total');
 const toastContainer = () => el('toastContainer');
 
-/* ---------- Load products ---------- */
 async function loadProducts() {
   showSkeletons();
   try {
@@ -55,14 +51,12 @@ async function loadProducts() {
     console.error('Failed to load products.json', err);
     productsData = { categories: [] };
   }
-
   populateCategoryFilter();
   restoreCart();
   renderProducts();
   renderCart();
 }
 
-/* ---------- UI helpers ---------- */
 function showSkeletons() {
   const container = productListEl();
   container.innerHTML = '';
@@ -87,7 +81,6 @@ function populateCategoryFilter() {
   });
 }
 
-/* ---------- Filtering, sorting, pagination ---------- */
 function getAllItems() {
   const cats = productsData.categories || [];
   return cats.flatMap(c => c.items.map(it => ({ ...it, category: c.name })));
@@ -111,7 +104,6 @@ function applySort(items) {
   if (currentSort === 'price_asc') arr.sort((a,b)=>a.price-b.price);
   else if (currentSort === 'price_desc') arr.sort((a,b)=>b.price-a.price);
   else if (currentSort === 'rating_desc') arr.sort((a,b)=>(b.rating||0)-(a.rating||0));
-  // relevance or default: keep original order
   return arr;
 }
 
@@ -122,7 +114,6 @@ function paginate(items) {
   return { items: items.slice(start, start + PAGE_SIZE), totalPages };
 }
 
-/* ---------- Render products ---------- */
 function renderProducts() {
   const all = getAllItems();
   const filtered = applyFilters(all);
@@ -170,17 +161,19 @@ function renderProducts() {
   });
 
   // pagination controls
+  const existingPager = document.getElementById('vm-pager');
+  if (existingPager) existingPager.remove();
   const pager = document.createElement('div');
+  pager.id = 'vm-pager';
   pager.className = 'lg:col-span-3 flex items-center justify-center gap-3 mt-6';
   pager.innerHTML = `
     <button class="px-3 py-1 border rounded" ${page===1?'disabled':''} onclick="changePage(${page-1})">Prev</button>
     <span class="text-sm text-slate-600">Page ${page} of ${totalPages}</span>
     <button class="px-3 py-1 border rounded" ${page===totalPages?'disabled':''} onclick="changePage(${page+1})">Next</button>
   `;
-  container.parentElement.appendChild(pager);
+  productListEl().parentElement.appendChild(pager);
 }
 
-/* ---------- Utilities ---------- */
 function escapeQuotes(s) { return s.replace(/'/g, "\\'").replace(/"/g, '\\"'); }
 function renderStars(r) {
   const full = Math.floor(r);
@@ -194,44 +187,20 @@ function renderStars(r) {
   return html;
 }
 
-/* ---------- Filters / Sort handlers ---------- */
-function filterCategory() {
-  currentCategory = el('categoryFilter').value;
-  page = 1;
-  renderProducts();
-}
-function searchProducts() {
-  currentSearch = el('searchInput').value.trim();
-  page = 1;
-  renderProducts();
-}
-function sortProducts() {
-  currentSort = el('sortSelect').value;
-  page = 1;
-  renderProducts();
-}
+/* Filters & controls */
+function filterCategory() { currentCategory = el('categoryFilter').value; page = 1; renderProducts(); }
+function searchProducts() { currentSearch = el('searchInput').value.trim(); page = 1; renderProducts(); }
+function sortProducts() { currentSort = el('sortSelect').value; page = 1; renderProducts(); }
 function applyPriceFilter() {
   const min = parseFloat(el('minPrice').value) || null;
   const max = parseFloat(el('maxPrice').value) || null;
-  priceFilter = { min, max };
-  page = 1;
-  renderProducts();
+  priceFilter = { min, max }; page = 1; renderProducts();
 }
-function applyRatingFilter(r) {
-  ratingFilter = r;
-  page = 1;
-  renderProducts();
-}
-function changePage(p) {
-  page = Math.max(1, p);
-  renderProducts();
-}
-function openMobileFilters() {
-  // simple mobile filter: focus search input
-  el('searchInput').focus();
-}
+function applyRatingFilter(r) { ratingFilter = r; page = 1; renderProducts(); }
+function changePage(p) { page = Math.max(1, p); renderProducts(); }
+function openMobileFilters() { el('searchInput').focus(); }
 
-/* ---------- Cart logic ---------- */
+/* Cart logic */
 function restoreCart() {
   const saved = localStorage.getItem('cart');
   if (saved) cart = JSON.parse(saved);
@@ -244,18 +213,14 @@ function updateCartBadge() {
   badge.textContent = count;
   badge.style.display = count ? 'inline-block' : 'none';
 }
-
-/* add to cart */
 function addToCart(id, name, price, qty=1) {
   const existing = cart.find(i=>i.id===id);
   if (existing) existing.quantity += qty;
   else cart.push({ id, name, price, quantity: qty });
-  saveCart();
-  renderCart();
-  showToast(`${name} added to cart`, 'success');
+  saveCart(); renderCart(); showToast(`${name} added to cart`, 'success');
 }
 
-/* animated add-to-cart */
+/* Animated add-to-cart */
 function addToCartAnimated(id, name, price, btnEl) {
   const card = btnEl.closest('.bg-white') || btnEl.closest('.card-hover');
   const img = card ? card.querySelector('img') : null;
@@ -263,7 +228,6 @@ function addToCartAnimated(id, name, price, btnEl) {
     const imgRect = img.getBoundingClientRect();
     const badge = cartCountBadge();
     const badgeRect = badge.getBoundingClientRect();
-
     const clone = img.cloneNode(true);
     clone.style.position = 'fixed';
     clone.style.left = imgRect.left + 'px';
@@ -273,14 +237,11 @@ function addToCartAnimated(id, name, price, btnEl) {
     clone.style.transition = 'transform 700ms cubic-bezier(.2,.9,.3,1), opacity 700ms';
     clone.style.zIndex = 9999;
     document.body.appendChild(clone);
-
     void clone.offsetWidth;
-
     const dx = badgeRect.left + badgeRect.width/2 - (imgRect.left + imgRect.width/2);
     const dy = badgeRect.top + badgeRect.height/2 - (imgRect.top + imgRect.height/2);
     clone.style.transform = `translate(${dx}px, ${dy}px) scale(.15) rotate(20deg)`;
     clone.style.opacity = '0.8';
-
     setTimeout(()=> {
       clone.remove();
       addToCart(id, name, price, 1);
@@ -291,7 +252,6 @@ function addToCartAnimated(id, name, price, btnEl) {
   }
 }
 
-/* update quantity */
 function updateQuantity(index, change) {
   if (!cart[index]) return;
   cart[index].quantity += change;
@@ -302,11 +262,9 @@ function updateQuantity(index, change) {
   } else {
     showToast(`${cart[index].name} quantity updated`, 'info');
   }
-  saveCart();
-  renderCart();
+  saveCart(); renderCart();
 }
 
-/* render cart drawer */
 function renderCart() {
   const list = cartItemsEl();
   list.innerHTML = '';
@@ -352,7 +310,18 @@ function findImageForId(id) {
   return 'images/placeholder.png';
 }
 
-/* ---------- Quick view modal ---------- */
+/* Toasts */
+function showToast(message, type='info') {
+  const id = 't' + Date.now();
+  const div = document.createElement('div');
+  div.id = id;
+  div.className = `px-4 py-2 rounded shadow ${type==='success'?'bg-green-500 text-white':type==='error'?'bg-red-500 text-white':type==='warning'?'bg-amber-300 text-slate-800':'bg-slate-200 text-slate-800'}`;
+  div.textContent = message;
+  toastContainer().appendChild(div);
+  setTimeout(()=> div.remove(), 3000);
+}
+
+/* Quick view modal */
 let currentModalProduct = null;
 function openQuickView(productId) {
   let found = null;
@@ -383,7 +352,25 @@ document.addEventListener('click', (e)=> {
   }
 });
 
-/* ---------- Contact form ---------- */
+/* Cart drawer toggle */
+(function cartDrawerToggle() {
+  const openBtn = document.getElementById('openCartBtn');
+  const closeBtn = document.getElementById('closeCartBtn');
+  const drawer = document.getElementById('cartDrawer');
+  if (!drawer) return;
+  function showDrawer() {
+    drawer.classList.remove('translate-x-full'); drawer.classList.add('translate-x-0'); drawer.setAttribute('aria-hidden','false');
+  }
+  function hideDrawer() {
+    drawer.classList.remove('translate-x-0'); drawer.classList.add('translate-x-full'); drawer.setAttribute('aria-hidden','true');
+  }
+  if (openBtn) openBtn.addEventListener('click', (e)=>{ e.preventDefault(); showDrawer(); });
+  if (closeBtn) closeBtn.addEventListener('click', (e)=>{ e.preventDefault(); hideDrawer(); });
+  document.addEventListener('keydown', (ev)=> { if (ev.key === 'Escape' && drawer.classList.contains('translate-x-0')) hideDrawer(); });
+  hideDrawer();
+})();
+
+/* Contact form */
 function sendContact(e) {
   e.preventDefault();
   const name = el('name').value;
@@ -399,52 +386,11 @@ function sendContact(e) {
   document.getElementById('contactForm').reset();
 }
 
-/* ---------- Toasts ---------- */
-function showToast(message, type='info') {
-  const id = 't' + Date.now();
-  const div = document.createElement('div');
-  div.id = id;
-  div.className = `px-4 py-2 rounded shadow ${type==='success'?'bg-green-500 text-white':type==='error'?'bg-red-500 text-white':type==='warning'?'bg-amber-300 text-slate-800':'bg-slate-200 text-slate-800'}`;
-  div.textContent = message;
-  toastContainer().appendChild(div);
-  setTimeout(()=> div.remove(), 3000);
-}
-
-/* ---------- Razorpay payment trigger ---------- */
+/* Razorpay payment trigger (placeholder) */
 async function startPayment(total) {
   if (!total || total <= 0) { showToast('Cart is empty', 'warning'); return; }
-  const customerEmail = el('email') ? el('email').value || 'guest@example.com' : 'guest@example.com';
-  const customerName = el('name') ? el('name').value || 'Guest' : 'Guest';
-  const customerPhone = el('phone') ? el('phone').value || '9999999999' : '9999999999';
-  try {
-    const res = await fetch('/create-order', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount: total, customerEmail, customerName, customerPhone })
-    });
-    const order = await res.json();
-    const options = {
-      key: 'YOUR_KEY_ID',
-      amount: order.amount,
-      currency: 'INR',
-      name: 'Magical Moments Merchandise',
-      description: 'Order Payment',
-      order_id: order.id,
-      prefill: { name: customerName, email: customerEmail, contact: customerPhone },
-      handler: function (response) {
-        showToast('Payment successful: ' + response.razorpay_payment_id, 'success');
-      },
-      theme: { color: '#3399cc' }
-    };
-    const rzp = new Razorpay(options);
-    rzp.open();
-  } catch (err) {
-    console.error(err);
-    showToast('Payment initialization failed', 'error');
-  }
+  showToast('Payment flow not configured. Implement server create-order endpoint.', 'info');
 }
-
-/* pay button wiring */
 document.addEventListener('DOMContentLoaded', () => {
   const payBtn = el('payButton');
   if (payBtn) payBtn.addEventListener('click', () => {
@@ -453,38 +399,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-/* ---------- Init ---------- */
+/* Init */
 loadProducts();
-
-// CART DRAWER TOGGLE (prevents drawer from covering UI when hidden)
-(function cartDrawerToggle() {
-  const openBtn = document.getElementById('openCartBtn');
-  const closeBtn = document.getElementById('closeCartBtn');
-  const drawer = document.getElementById('cartDrawer');
-
-  if (!drawer) return;
-
-  function showDrawer() {
-    drawer.classList.remove('translate-x-full', 'pointer-events-none');
-    drawer.classList.add('translate-x-0', 'pointer-events-auto');
-    drawer.setAttribute('aria-hidden', 'false');
-    // optional: trap focus or set focus to first focusable element
-  }
-
-  function hideDrawer() {
-    drawer.classList.remove('translate-x-0', 'pointer-events-auto');
-    drawer.classList.add('translate-x-full', 'pointer-events-none');
-    drawer.setAttribute('aria-hidden', 'true');
-  }
-
-  if (openBtn) openBtn.addEventListener('click', (e) => { e.preventDefault(); showDrawer(); });
-  if (closeBtn) closeBtn.addEventListener('click', (e) => { e.preventDefault(); hideDrawer(); });
-
-  // close on Escape
-  document.addEventListener('keydown', (ev) => {
-    if (ev.key === 'Escape' && drawer.classList.contains('translate-x-0')) hideDrawer();
-  });
-
-  // ensure drawer hidden on load
-  hideDrawer();
-})();
